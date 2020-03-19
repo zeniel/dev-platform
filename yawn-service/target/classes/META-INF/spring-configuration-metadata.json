@@ -1,0 +1,27 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "com.devplatform.amqp.config.RabbitMQProperties",
+      "name": "rabbitmq",
+      "type": "com.devplatform.amqp.config.RabbitMQProperties"
+    }
+  ],
+  "properties": [
+    {
+      "sourceType": "com.devplatform.amqp.config.RabbitMQProperties",
+      "name": "rabbitmq.exchange-name",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.devplatform.amqp.config.RabbitMQProperties",
+      "name": "rabbitmq.queue-name-default",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.devplatform.amqp.config.RabbitMQProperties",
+      "name": "rabbitmq.routing-key-prefix",
+      "type": "java.lang.String"
+    }
+  ]
+}

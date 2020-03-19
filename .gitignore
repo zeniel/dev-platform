@@ -1,3 +1,4 @@
 *.class
 
-./yawn/target
+./yawn-service/target
+./yawn-service/bin
