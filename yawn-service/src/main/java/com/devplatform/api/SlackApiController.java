@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import com.devplatform.amqp.config.AMQPProducer;
 import com.devplatform.model.ModelApiResponse;
-import com.devplatform.model.SlackChannelMessage;
+import com.devplatform.model.event.slack.SlackChannelMessage;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import io.swagger.annotations.ApiParam;

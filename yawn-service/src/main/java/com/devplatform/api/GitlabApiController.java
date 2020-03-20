@@ -14,8 +14,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import com.devplatform.amqp.config.AMQPProducer;
-import com.devplatform.model.GitlabEvent;
 import com.devplatform.model.ModelApiResponse;
+import com.devplatform.model.event.gitlab.GitlabEvent;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import io.swagger.annotations.ApiParam;

@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.devplatform.model.JiraEvent;
 import com.devplatform.model.ModelApiResponse;
+import com.devplatform.model.event.jira.JiraEvent;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

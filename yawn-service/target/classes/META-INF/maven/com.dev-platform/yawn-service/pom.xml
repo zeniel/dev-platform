@@ -96,5 +96,12 @@
 			<groupId>com.google.code.gson</groupId>
 			<artifactId>gson</artifactId>
 		</dependency>
+		
+		<!-- common dev-platform elements -->
+		<dependency>
+		  <groupId>com.dev-platform</groupId>
+		  <artifactId>devplatform-commons</artifactId>
+		  <version>0.0.1-SNAPSHOT</version>
+		</dependency>
     </dependencies>
 </project>

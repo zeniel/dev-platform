@@ -6,7 +6,6 @@ import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.core.TopicExchange;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
-import org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer;
 import org.springframework.amqp.rabbit.listener.adapter.MessageListenerAdapter;
 import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,11 +28,6 @@ public class AMQPConfig {
     TopicExchange exchange() {
         return new TopicExchange(rabbitMQProperties.getExchangeName());
     }
-
-    /*@Bean
-    DirectExchange exchange() {
-        return new DirectExchange(rabbitMQProperties().getExchangeName());
-    }*/
 
     @Bean
     Binding binding(Queue queue, TopicExchange exchange) {
@@ -70,7 +64,7 @@ public class AMQPConfig {
     }
 
     @Bean
-    MessageListenerAdapter listenerAdapter(RabbitMqListener listener) {
+    MessageListenerAdapter listenerAdapter(RabbitMQListener listener) {
         return new MessageListenerAdapter(listener, "listen");
     }
 
