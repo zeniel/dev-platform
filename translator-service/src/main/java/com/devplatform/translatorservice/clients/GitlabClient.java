@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.devplatform.model.event.gitlab.GitlabUser;
 
-@FeignClient(name = "gitlab", url = "https://git.cnj.jus.br", configuration = GitlabClientConfiguration.class)
+@FeignClient(name = "gitlab", url = "https://git.cnj.jus.br")
 public interface GitlabClient {
 	@RequestMapping(method = RequestMethod.GET, value = "/api/v4/user", consumes = "application/json")
 	public GitlabUser obterUsuarioLogado();
