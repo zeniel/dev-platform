@@ -1,12 +1,13 @@
 package com.devplatform.translatorservice.clients;
 
-import feign.Param;
-import feign.RequestLine;
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.devplatform.model.event.jira.JiraUser;
+
+@FeignClient(name = "jira", url = "https://www.cnj.jus.br/jira", configuration = JiraClientConfiguration.class)
 public interface JiraClient {
-	@RequestLine("GET " + "/seam/resource/rest/pje-legacy/processos/numero-processo/{numeroProcesso}/validar")
-	public Integer validarAcessoAoProcesso(@Param("numeroProcesso") String numeroProcesso);
-	
-	@RequestLine("GET " + "/seam/resource/rest/pje-legacy/identity/auth")
-	public String recuperarUsuarioPjeLegacy();
+	@RequestMapping(method = RequestMethod.GET, value = "/rest/auth/1/session", consumes = "application/json")
+	public JiraUser obterUsuarioLogado();
 }

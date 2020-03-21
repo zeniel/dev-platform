@@ -13,6 +13,15 @@ public class ClientsProperties {
     private String jiraUser;
     private String jiraPass;
     
+    private String slackUrl;
+    private String slackAppId;
+    private String slackClientId;
+    private String slackClientSecret;
+    private String slackSignSecret;
+    private String slackVerificationToken;
+    private String slackToken;
+    private String slackChannelCloudReleases;
+    
 	public String getGitlabUrl() {
 		return gitlabUrl;
 	}
@@ -43,4 +52,54 @@ public class ClientsProperties {
 	public void setJiraPass(String jiraPass) {
 		this.jiraPass = jiraPass;
 	}
+	public String getSlackUrl() {
+		return slackUrl;
+	}
+	public void setSlackUrl(String slackUrl) {
+		this.slackUrl = slackUrl;
+	}
+
+	public String getSlackAppId() {
+		return slackAppId;
+	}
+	public void setSlackAppId(String slackAppId) {
+		this.slackAppId = slackAppId;
+	}
+	public String getSlackClientId() {
+		return slackClientId;
+	}
+	public void setSlackClientId(String slackClientId) {
+		this.slackClientId = slackClientId;
+	}
+	public String getSlackClientSecret() {
+		return slackClientSecret;
+	}
+	public void setSlackClientSecret(String slackClientSecret) {
+		this.slackClientSecret = slackClientSecret;
+	}
+	public String getSlackSignSecret() {
+		return slackSignSecret;
+	}
+	public void setSlackSignSecret(String slackSignSecret) {
+		this.slackSignSecret = slackSignSecret;
+	}
+	public String getSlackVerificationToken() {
+		return slackVerificationToken;
+	}
+	public void setSlackVerificationToken(String slackVerificationToken) {
+		this.slackVerificationToken = slackVerificationToken;
+	}
+	public String getSlackToken() {
+		return slackToken;
+	}
+	public void setSlackToken(String slackToken) {
+		this.slackToken = slackToken;
+	}
+	public String getSlackChannelCloudReleases() {
+		return slackChannelCloudReleases;
+	}
+	public void setSlackChannelCloudReleases(String slackChannelCloudReleases) {
+		this.slackChannelCloudReleases = slackChannelCloudReleases;
+	}
+	
 }
