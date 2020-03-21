@@ -1,6 +1,6 @@
 package com.devplatform.translatorservice.clients.queryparam;
 
-public class SlackGenericMessage {
-	private String token;
+public class SlackGenericQueryParam {
+	protected String token;
 
 }

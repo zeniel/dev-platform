@@ -1,15 +1,14 @@
 package com.devplatform.translatorservice.clients;
 
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.cloud.openfeign.SpringQueryMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.devplatform.model.event.jira.JiraUser;
+import com.devplatform.translatorservice.clients.queryparam.SlackGetUsersInfoQueryParam;
 
-@FeignClient(name = "slack", url = "https://hooks.slack.com/services/", configuration = JiraClientConfiguration.class)
+@FeignClient(name = "slack", url = "https://slack.com/api/", configuration = JiraClientConfiguration.class)
 public interface SlackClient {
-	@RequestMapping(method = RequestMethod.GET, value = "{}/rest/auth/1/session", consumes = "application/json")
-	public JiraUser obterUsuarioLogado();
+	@RequestMapping(method = RequestMethod.GET, value = "users.info", consumes = "application/json")
+	public String obterUsuarioLogado(@SpringQueryMap SlackGetUsersInfoQueryParam user);
 }
-
-//https://hooks.slack.com/services/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

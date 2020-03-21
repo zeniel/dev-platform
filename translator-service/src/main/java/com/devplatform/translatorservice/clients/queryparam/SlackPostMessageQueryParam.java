@@ -1,6 +1,6 @@
 package com.devplatform.translatorservice.clients.queryparam;
 
-public class SlackPostMessage extends SlackGenericMessage{
+public class SlackPostMessageQueryParam extends SlackGenericQueryParam{
 		private String channel;
 		private String text;
 }
