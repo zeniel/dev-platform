@@ -1,15 +1,17 @@
-package com.devplatform.translatorservice.controllers;
+package com.devplatform.translatorservice.services;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import com.devplatform.model.event.gitlab.GitlabUser;
 import com.devplatform.translatorservice.clients.GitlabClient;
 
-public class GitlabUserController {
+@Component
+public class UserService {
 
-	private static final Logger logger = LoggerFactory.getLogger(GitlabUserController.class);
+	private static final Logger logger = LoggerFactory.getLogger(UserService.class);
 
     @Autowired
     private GitlabClient gitlabClient;

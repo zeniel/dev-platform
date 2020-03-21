@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 import com.devplatform.model.event.gitlab.GitlabEvent;
 import com.devplatform.model.event.jira.JiraEvent;
 import com.devplatform.model.event.slack.SlackChannelMessage;
-import com.devplatform.translatorservice.controllers.GitlabUserController;
+import com.devplatform.translatorservice.services.UserService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Component
@@ -35,6 +35,8 @@ public class TranslatorMessageConsumer {
 	
     @Autowired
     private ObjectMapper objectMapper;
+    @Autowired
+    private UserService userService;
     
 	@RabbitListener(
 		bindings = @QueueBinding(
@@ -53,8 +55,7 @@ public class TranslatorMessageConsumer {
 				GitlabEvent gitlabEvent = objectMapper.readValue(body, GitlabEvent.class);
 				logger.info("[GITLAB] - " + gitlabEvent.getObjectKind().name());
 				// TODO - Implement gitlab translator
-				GitlabUserController glUserCtrl = new GitlabUserController();
-				glUserCtrl.teste();
+				userService.teste();
 			}else if(messageType.endsWith(EVENTS_SUFFIX.JIRAISSUEEVENT)) {
 				JiraEvent jiraEvent = objectMapper.readValue(body, JiraEvent.class);
 				logger.info("[JIRA] - " + jiraEvent.getIssueEventTypeName().name());
