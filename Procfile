@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -cp yawn-service/target/classes:tyawn-service/target/dependency/* Swagger2SpringBoot
+web: java $JAVA_OPTS -Dserver.port=8020 -jar yawn-service/target/yawn-service.jar
