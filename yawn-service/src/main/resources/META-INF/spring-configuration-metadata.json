@@ -1,0 +1,51 @@
+{"groups": [
+    {
+        "name": "yawn",
+        "type": "com.devplatform.amqp.config.CloudAgentProperties",
+        "sourceType": "br.jus.pje.cloudagent.CloudAgentProperties"
+    }
+],"properties": [
+    {
+        "name": "yawn.exchange-name",
+        "type": "java.lang.String",
+        "sourceType": "br.jus.pje.cloudagent.CloudAgentProperties"
+    },
+    {
+        "name": "yawn.queue-name-default",
+        "type": "java.lang.String",
+        "sourceType": "br.jus.pje.cloudagent.CloudAgentProperties"
+    },
+    {
+        "name": "yawn.routing-key-prefix",
+        "type": "java.lang.String",
+        "sourceType": "br.jus.pje.cloudagent.CloudAgentProperties"
+    }    
+],"hints": [
+    {
+        "name": "yawn.exchange-name",
+        "values": [
+            {
+                "value": "String",
+                "description": "Nome da exchange para a qual será enviada a mensagem"
+            }
+        ]
+    },
+    {
+        "name": "yawn.queue-name-default",
+        "values": [
+            {
+                "value": "String",
+                "description": "Nome da final padrão"
+            }
+        ]
+    },
+    {
+        "name": "yawn.routing-key-prefix",
+        "values": [
+            {
+                "value": "String",
+                "description": "Prefixo padrão do routing key"
+            }
+        ]
+    }
+]}

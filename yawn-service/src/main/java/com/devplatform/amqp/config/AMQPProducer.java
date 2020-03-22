@@ -12,7 +12,7 @@ public class AMQPProducer {
     private RabbitTemplate rabbitTemplate;
 
     @Autowired
-    RabbitMQProperties rabbitMQProperties;
+    YawnProperties rabbitMQProperties;
     
     public interface ROUTINGKEYSUFFIX {
     	String GITLAB = ".gitlab";

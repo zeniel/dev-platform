@@ -1,0 +1,26 @@
+server:
+  servlet:
+    context-path: /
+  port: 8020
+spring:
+  jackson:
+    date-format: com.devplatform.RFC3339DateFormat
+    serialization:
+      WRITE_DATES_AS_TIMESTAMPS: false
+  rabbitmq:
+#    exchangeName: dev-platform-exchange
+#    queueNameDefault: dev-platform.events
+#    routingKeyPrefix: dev-platform
+    host: ${RABBITMQ_HOST:localhost}
+    username: ${RABBIT_USERNAME:sample}
+    password: ${RABBIT_PASSWORD:sample}
+    connection-timeout: 1000ms
+springfox:
+  documentation:
+    swagger:
+      v2:
+        path: /api-docs
+yawn:
+  exchange-name: ${EXCHANGE_NAME:dev-platform-exchange}
+  queue-name-default: ${QUEUE_NAME_DEFAULT:dev-platform.events}
+  routing-key-prefix: ${ROUTING_KEY_PREFIX:dev-platform}
