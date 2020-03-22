@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import javax.annotation.Generated;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
@@ -13,334 +14,283 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-import io.swagger.annotations.ApiModelProperty;
-
 /**
  * GitlabEvent
  */
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2020-03-18T01:03:28.811Z[GMT]")
-public class GitlabEvent   {
-  /**
-   * Gets or Sets objectKind
-   */
-  public enum ObjectKindEnum {
-    MERGE_REQUEST("merge_request"),
-    
-    COMMENT("comment"),
-    
-    TAG_PUSHED("tag_pushed"),
-    
-    PUSH("push"),
-    
-    JOB_CHANGES("job_changes"),
-    
-    PIPELINE_CHANGES("pipeline_changes");
+@Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2020-03-18T01:03:28.811Z[GMT]")
+public class GitlabEvent {
+	/**
+	 * Gets or Sets objectKind
+	 */
+	public enum ObjectKindEnum {
+		MERGE_REQUEST("merge_request"),
 
-    private String value;
+		COMMENT("comment"),
 
-    ObjectKindEnum(String value) {
-      this.value = value;
-    }
+		TAG_PUSHED("tag_pushed"),
 
-    @Override
-    @JsonValue
-    public String toString() {
-      return String.valueOf(value);
-    }
+		PUSH("push"),
 
-    @JsonCreator
-    public static ObjectKindEnum fromValue(String text) {
-      for (ObjectKindEnum b : ObjectKindEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
-          return b;
-        }
-      }
-      return null;
-    }
-  }
-  @JsonProperty("object_kind")
-  private ObjectKindEnum objectKind = null;
+		JOB_CHANGES("job_changes"),
 
-  /**
-   * Gets or Sets eventType
-   */
-  public enum EventTypeEnum {
-    MERGE_REQUEST("merge_request"),
-    
-    COMMENT("comment"),
-    
-    TAG_PUSHED("tag_pushed"),
-    
-    PUSH("push"),
-    
-    JOB_CHANGES("job_changes"),
-    
-    PIPELINE_CHANGES("pipeline_changes");
+		PIPELINE_CHANGES("pipeline_changes");
 
-    private String value;
+		private String value;
 
-    EventTypeEnum(String value) {
-      this.value = value;
-    }
+		ObjectKindEnum(String value) {
+			this.value = value;
+		}
 
-    @Override
-    @JsonValue
-    public String toString() {
-      return String.valueOf(value);
-    }
+		@Override
+		@JsonValue
+		public String toString() {
+			return String.valueOf(value);
+		}
 
-    @JsonCreator
-    public static EventTypeEnum fromValue(String text) {
-      for (EventTypeEnum b : EventTypeEnum.values()) {
-        if (String.valueOf(b.value).equals(text)) {
-          return b;
-        }
-      }
-      return null;
-    }
-  }
-  @JsonProperty("event_type")
-  private EventTypeEnum eventType = null;
+		@JsonCreator
+		public static ObjectKindEnum fromValue(String text) {
+			for (ObjectKindEnum b : ObjectKindEnum.values()) {
+				if (String.valueOf(b.value).equals(text)) {
+					return b;
+				}
+			}
+			return null;
+		}
+	}
 
-  @JsonProperty("user")
-  private GitlabUser user = null;
+	@JsonProperty("object_kind")
+	private ObjectKindEnum objectKind = null;
 
-  @JsonProperty("project")
-  private GitlabProject project = null;
+	/**
+	 * Gets or Sets eventType
+	 */
+	public enum EventTypeEnum {
+		MERGE_REQUEST("merge_request"),
 
-  @JsonProperty("object_attributes")
-  private GitlabMergeRequestAttributes objectAttributes = null;
+		COMMENT("comment"),
 
-  @JsonProperty("labels")
-  @Valid
-  private List<String> labels = null;
+		TAG_PUSHED("tag_pushed"),
 
-  @JsonProperty("changes")
-  private GitlabEventChanges changes = null;
+		PUSH("push"),
 
-  @JsonProperty("repository")
-  private GitlabEventRepository repository = null;
+		JOB_CHANGES("job_changes"),
 
-  public GitlabEvent objectKind(ObjectKindEnum objectKind) {
-    this.objectKind = objectKind;
-    return this;
-  }
+		PIPELINE_CHANGES("pipeline_changes");
 
-  /**
-   * Get objectKind
-   * @return objectKind
-  **/
-  @ApiModelProperty(required = true, value = "")
-      @NotNull
+		private String value;
 
-    public ObjectKindEnum getObjectKind() {
-    return objectKind;
-  }
+		EventTypeEnum(String value) {
+			this.value = value;
+		}
 
-  public void setObjectKind(ObjectKindEnum objectKind) {
-    this.objectKind = objectKind;
-  }
+		@Override
+		@JsonValue
+		public String toString() {
+			return String.valueOf(value);
+		}
 
-  public GitlabEvent eventType(EventTypeEnum eventType) {
-    this.eventType = eventType;
-    return this;
-  }
+		@JsonCreator
+		public static EventTypeEnum fromValue(String text) {
+			for (EventTypeEnum b : EventTypeEnum.values()) {
+				if (String.valueOf(b.value).equals(text)) {
+					return b;
+				}
+			}
+			return null;
+		}
+	}
 
-  /**
-   * Get eventType
-   * @return eventType
-  **/
-  @ApiModelProperty(required = true, value = "")
-      @NotNull
+	@JsonProperty("event_type")
+	private EventTypeEnum eventType = null;
 
-    public EventTypeEnum getEventType() {
-    return eventType;
-  }
+	@JsonProperty("user")
+	private GitlabUser user = null;
 
-  public void setEventType(EventTypeEnum eventType) {
-    this.eventType = eventType;
-  }
+	@JsonProperty("project")
+	private GitlabProject project = null;
 
-  public GitlabEvent user(GitlabUser user) {
-    this.user = user;
-    return this;
-  }
+	@JsonProperty("object_attributes")
+	private GitlabMergeRequestAttributes objectAttributes = null;
 
-  /**
-   * Get user
-   * @return user
-  **/
-  @ApiModelProperty(required = true, value = "")
-      @NotNull
+	@JsonProperty("labels")
+	@Valid
+	private List<String> labels = null;
 
-    @Valid
-    public GitlabUser getUser() {
-    return user;
-  }
+	@JsonProperty("changes")
+	private GitlabEventChanges changes = null;
 
-  public void setUser(GitlabUser user) {
-    this.user = user;
-  }
+	@JsonProperty("repository")
+	private GitlabEventRepository repository = null;
 
-  public GitlabEvent project(GitlabProject project) {
-    this.project = project;
-    return this;
-  }
+	public GitlabEvent objectKind(ObjectKindEnum objectKind) {
+		this.objectKind = objectKind;
+		return this;
+	}
 
-  /**
-   * Get project
-   * @return project
-  **/
-  @ApiModelProperty(required = true, value = "")
-      @NotNull
+	@NotNull
+	public ObjectKindEnum getObjectKind() {
+		return objectKind;
+	}
 
-    @Valid
-    public GitlabProject getProject() {
-    return project;
-  }
+	public void setObjectKind(ObjectKindEnum objectKind) {
+		this.objectKind = objectKind;
+	}
 
-  public void setProject(GitlabProject project) {
-    this.project = project;
-  }
+	public GitlabEvent eventType(EventTypeEnum eventType) {
+		this.eventType = eventType;
+		return this;
+	}
 
-  public GitlabEvent objectAttributes(GitlabMergeRequestAttributes objectAttributes) {
-    this.objectAttributes = objectAttributes;
-    return this;
-  }
+	@NotNull
+	public EventTypeEnum getEventType() {
+		return eventType;
+	}
 
-  /**
-   * Get objectAttributes
-   * @return objectAttributes
-  **/
-  @ApiModelProperty(value = "")
-  
-    @Valid
-    public GitlabMergeRequestAttributes getObjectAttributes() {
-    return objectAttributes;
-  }
+	public void setEventType(EventTypeEnum eventType) {
+		this.eventType = eventType;
+	}
 
-  public void setObjectAttributes(GitlabMergeRequestAttributes objectAttributes) {
-    this.objectAttributes = objectAttributes;
-  }
+	public GitlabEvent user(GitlabUser user) {
+		this.user = user;
+		return this;
+	}
 
-  public GitlabEvent labels(List<String> labels) {
-    this.labels = labels;
-    return this;
-  }
+	@NotNull
+	@Valid
+	public GitlabUser getUser() {
+		return user;
+	}
 
-  public GitlabEvent addLabelsItem(String labelsItem) {
-    if (this.labels == null) {
-      this.labels = new ArrayList<String>();
-    }
-    this.labels.add(labelsItem);
-    return this;
-  }
+	public void setUser(GitlabUser user) {
+		this.user = user;
+	}
 
-  /**
-   * Get labels
-   * @return labels
-  **/
-  @ApiModelProperty(value = "")
-  
-    public List<String> getLabels() {
-    return labels;
-  }
+	public GitlabEvent project(GitlabProject project) {
+		this.project = project;
+		return this;
+	}
 
-  public void setLabels(List<String> labels) {
-    this.labels = labels;
-  }
+	@NotNull
+	@Valid
+	public GitlabProject getProject() {
+		return project;
+	}
 
-  public GitlabEvent changes(GitlabEventChanges changes) {
-    this.changes = changes;
-    return this;
-  }
+	public void setProject(GitlabProject project) {
+		this.project = project;
+	}
 
-  /**
-   * Get changes
-   * @return changes
-  **/
-  @ApiModelProperty(value = "")
-  
-    @Valid
-    public GitlabEventChanges getChanges() {
-    return changes;
-  }
+	public GitlabEvent objectAttributes(GitlabMergeRequestAttributes objectAttributes) {
+		this.objectAttributes = objectAttributes;
+		return this;
+	}
 
-  public void setChanges(GitlabEventChanges changes) {
-    this.changes = changes;
-  }
+	@Valid
+	public GitlabMergeRequestAttributes getObjectAttributes() {
+		return objectAttributes;
+	}
 
-  public GitlabEvent repository(GitlabEventRepository repository) {
-    this.repository = repository;
-    return this;
-  }
+	public void setObjectAttributes(GitlabMergeRequestAttributes objectAttributes) {
+		this.objectAttributes = objectAttributes;
+	}
 
-  /**
-   * Get repository
-   * @return repository
-  **/
-  @ApiModelProperty(value = "")
-  
-    @Valid
-    public GitlabEventRepository getRepository() {
-    return repository;
-  }
+	public GitlabEvent labels(List<String> labels) {
+		this.labels = labels;
+		return this;
+	}
 
-  public void setRepository(GitlabEventRepository repository) {
-    this.repository = repository;
-  }
+	public GitlabEvent addLabelsItem(String labelsItem) {
+		if (this.labels == null) {
+			this.labels = new ArrayList<String>();
+		}
+		this.labels.add(labelsItem);
+		return this;
+	}
 
+	public List<String> getLabels() {
+		return labels;
+	}
 
-  @Override
-  public boolean equals(java.lang.Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    GitlabEvent gitlabEvent = (GitlabEvent) o;
-    return Objects.equals(this.objectKind, gitlabEvent.objectKind) &&
-        Objects.equals(this.eventType, gitlabEvent.eventType) &&
-        Objects.equals(this.user, gitlabEvent.user) &&
-        Objects.equals(this.project, gitlabEvent.project) &&
-        Objects.equals(this.objectAttributes, gitlabEvent.objectAttributes) &&
-        Objects.equals(this.labels, gitlabEvent.labels) &&
-        Objects.equals(this.changes, gitlabEvent.changes) &&
-        Objects.equals(this.repository, gitlabEvent.repository);
-  }
+	public void setLabels(List<String> labels) {
+		this.labels = labels;
+	}
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(objectKind, eventType, user, project, objectAttributes, labels, changes, repository);
-  }
+	public GitlabEvent changes(GitlabEventChanges changes) {
+		this.changes = changes;
+		return this;
+	}
 
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class GitlabEvent {\n");
-    
-    sb.append("    objectKind: ").append(toIndentedString(objectKind)).append("\n");
-    sb.append("    eventType: ").append(toIndentedString(eventType)).append("\n");
-    sb.append("    user: ").append(toIndentedString(user)).append("\n");
-    sb.append("    project: ").append(toIndentedString(project)).append("\n");
-    sb.append("    objectAttributes: ").append(toIndentedString(objectAttributes)).append("\n");
-    sb.append("    labels: ").append(toIndentedString(labels)).append("\n");
-    sb.append("    changes: ").append(toIndentedString(changes)).append("\n");
-    sb.append("    repository: ").append(toIndentedString(repository)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
+	@Valid
+	public GitlabEventChanges getChanges() {
+		return changes;
+	}
 
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(java.lang.Object o) {
-    if (o == null) {
-      return "null";
-    }
-    return o.toString().replace("\n", "\n    ");
-  }
+	public void setChanges(GitlabEventChanges changes) {
+		this.changes = changes;
+	}
+
+	public GitlabEvent repository(GitlabEventRepository repository) {
+		this.repository = repository;
+		return this;
+	}
+
+	@Valid
+	public GitlabEventRepository getRepository() {
+		return repository;
+	}
+
+	public void setRepository(GitlabEventRepository repository) {
+		this.repository = repository;
+	}
+
+	@Override
+	public boolean equals(java.lang.Object o) {
+		if (this == o) {
+			return true;
+		}
+		if (o == null || getClass() != o.getClass()) {
+			return false;
+		}
+		GitlabEvent gitlabEvent = (GitlabEvent) o;
+		return Objects.equals(this.objectKind, gitlabEvent.objectKind)
+				&& Objects.equals(this.eventType, gitlabEvent.eventType) && Objects.equals(this.user, gitlabEvent.user)
+				&& Objects.equals(this.project, gitlabEvent.project)
+				&& Objects.equals(this.objectAttributes, gitlabEvent.objectAttributes)
+				&& Objects.equals(this.labels, gitlabEvent.labels) && Objects.equals(this.changes, gitlabEvent.changes)
+				&& Objects.equals(this.repository, gitlabEvent.repository);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(objectKind, eventType, user, project, objectAttributes, labels, changes, repository);
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("class GitlabEvent {\n");
+
+		sb.append("    objectKind: ").append(toIndentedString(objectKind)).append("\n");
+		sb.append("    eventType: ").append(toIndentedString(eventType)).append("\n");
+		sb.append("    user: ").append(toIndentedString(user)).append("\n");
+		sb.append("    project: ").append(toIndentedString(project)).append("\n");
+		sb.append("    objectAttributes: ").append(toIndentedString(objectAttributes)).append("\n");
+		sb.append("    labels: ").append(toIndentedString(labels)).append("\n");
+		sb.append("    changes: ").append(toIndentedString(changes)).append("\n");
+		sb.append("    repository: ").append(toIndentedString(repository)).append("\n");
+		sb.append("}");
+		return sb.toString();
+	}
+
+	/**
+	 * Convert the given object to string with each line indented by 4 spaces
+	 * (except the first line).
+	 */
+	private String toIndentedString(java.lang.Object o) {
+		if (o == null) {
+			return "null";
+		}
+		return o.toString().replace("\n", "\n    ");
+	}
 }

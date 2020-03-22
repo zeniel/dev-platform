@@ -40,8 +40,7 @@ public class GitlabApiController implements GitlabApi {
         this.request = request;
     }
 
-    public ResponseEntity<ModelApiResponse> mergeRequest(@ApiParam(value = "" ,required=true )  @Valid @RequestBody GitlabEvent body
-) {
+    public ResponseEntity<ModelApiResponse> mergeRequest(@ApiParam(value = "" ,required=true )  @Valid @RequestBody GitlabEvent body) {
     	amqpProducer.sendMessageGeneric(body, serviceName, body.getEventType().name());
 
     	String accept = request.getHeader("Accept");
