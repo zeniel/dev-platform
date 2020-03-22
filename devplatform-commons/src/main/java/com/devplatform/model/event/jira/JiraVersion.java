@@ -7,8 +7,6 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
 import org.springframework.validation.annotation.Validated;
-//import org.threeten.bp.JavaTimeModule;
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -33,7 +31,7 @@ public class JiraVersion   {
   private Boolean released = null;
 
   @JsonProperty("releaseDate")
-  private JavaTimeModule releaseDate = null;
+  private String releaseDate = null;
 
   @JsonProperty("self")
   private String self = null;
@@ -118,7 +116,7 @@ public class JiraVersion   {
     this.released = released;
   }
 
-  public JiraVersion releaseDate(JavaTimeModule releaseDate) {
+  public JiraVersion releaseDate(String releaseDate) {
     this.releaseDate = releaseDate;
     return this;
   }
@@ -130,11 +128,11 @@ public class JiraVersion   {
   @ApiModelProperty(value = "")
   
     @Valid
-    public JavaTimeModule getReleaseDate() {
+    public String getReleaseDate() {
     return releaseDate;
   }
 
-  public void setReleaseDate(JavaTimeModule releaseDate) {
+  public void setReleaseDate(String releaseDate) {
     this.releaseDate = releaseDate;
   }
 

@@ -19,7 +19,8 @@ public class ClientsProperties {
     private String slackClientSecret;
     private String slackSignSecret;
     private String slackVerificationToken;
-    private String slackToken;
+    private String slackUserToken;
+    private String slackBotToken;
     private String slackChannelCloudReleases;
     
 	public String getGitlabUrl() {
@@ -90,10 +91,19 @@ public class ClientsProperties {
 		this.slackVerificationToken = slackVerificationToken;
 	}
 	public String getSlackToken() {
-		return slackToken;
+		return getSlackBotToken();
 	}
-	public void setSlackToken(String slackToken) {
-		this.slackToken = slackToken;
+	public String getSlackUserToken() {
+		return slackUserToken;
+	}
+	public void setSlackUserToken(String slackUserToken) {
+		this.slackUserToken = slackUserToken;
+	}
+	public String getSlackBotToken() {
+		return slackBotToken;
+	}
+	public void setSlackBotToken(String slackBotToken) {
+		this.slackBotToken = slackBotToken;
 	}
 	public String getSlackChannelCloudReleases() {
 		return slackChannelCloudReleases;

@@ -9,7 +9,6 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
 import org.springframework.validation.annotation.Validated;
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -166,7 +165,7 @@ public class JiraIssueFields   {
   private JiraIssueFieldsResolution resolution = null;
 
   @JsonProperty("resolutiondate")
-  private JavaTimeModule resolutiondate = null;
+  private String resolutiondate = null;
 
   @JsonProperty("customfield_13837")
   private String customfield13837 = null;
@@ -1136,7 +1135,7 @@ public class JiraIssueFields   {
     this.resolution = resolution;
   }
 
-  public JiraIssueFields resolutiondate(JavaTimeModule resolutiondate) {
+  public JiraIssueFields resolutiondate(String resolutiondate) {
     this.resolutiondate = resolutiondate;
     return this;
   }
@@ -1148,11 +1147,11 @@ public class JiraIssueFields   {
   @ApiModelProperty(value = "")
   
     @Valid
-    public JavaTimeModule getResolutiondate() {
+    public String getResolutiondate() {
     return resolutiondate;
   }
 
-  public void setResolutiondate(JavaTimeModule resolutiondate) {
+  public void setResolutiondate(String resolutiondate) {
     this.resolutiondate = resolutiondate;
   }
 

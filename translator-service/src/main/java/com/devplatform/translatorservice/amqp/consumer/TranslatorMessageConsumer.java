@@ -9,6 +9,8 @@ import org.springframework.amqp.rabbit.annotation.Queue;
 import org.springframework.amqp.rabbit.annotation.QueueBinding;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
 import com.devplatform.model.event.gitlab.GitlabEvent;
@@ -18,32 +20,33 @@ import com.devplatform.translatorservice.services.UserService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Component
+@PropertySource({ "classpath:application.properties" })
 public class TranslatorMessageConsumer {
 
 	private static final Logger logger = LoggerFactory.getLogger(TranslatorMessageConsumer.class);
-
-	public final static String EXCHANGE_NAME = "dev-platform-exchange";
-	public final static String TRANSLATOR_SERVICE_ROUTING_KEY = "dev-platform.#";
-	public final static String TRANSLATOR_SERVICE_QUEUE = "dev-platform.rawevents";
-	public final static String AMQP_HEADER_TYPEID = "__TypeId__";
-	
-	public interface EVENTS_SUFFIX {
-		public static final String GITLABEVENT = "event.gitlab.GitlabEvent";
-		public static final String JIRAISSUEEVENT = "event.jira.JiraEvent";
-		public static final String SLACKMESSAGE = "event.slack.SlackChannelMessage";
-	}
-	
-    @Autowired
+    
+	@Autowired
     private ObjectMapper objectMapper;
     @Autowired
     private UserService userService;
     
+	public final static String AMQP_HEADER_TYPEID = "__TypeId__";
+	
+	@Value("${rawevent.gitlab.general}")
+	private String EVENTS_GITLAB_GENERAL;
+	
+	@Value("${rawevent.jira.issue}")
+	private String EVENTS_JIRA_ISSUE;
+
+	@Value("${rawevent.slack.message}")
+	private String EVENTS_SLACK_MESSAGE;
+
 	@RabbitListener(
-		bindings = @QueueBinding(
-			value = @Queue(value = TRANSLATOR_SERVICE_QUEUE, durable = "true", autoDelete = "false", exclusive = "false"), 
-			exchange = @Exchange(value = EXCHANGE_NAME, type = ExchangeTypes.TOPIC), 
-			key = {TRANSLATOR_SERVICE_ROUTING_KEY})
-	)
+			bindings = @QueueBinding(
+				value = @Queue(value = "${rabbitmq.queueNameRawEvents}", durable = "true", autoDelete = "false", exclusive = "false"), 
+				exchange = @Exchange(value = "{rabbitmq.exchangeName}", type = ExchangeTypes.TOPIC), 
+				key = {"${rabbitmq.routingKeyPrefix}.#"})
+		)
 	public void receiveRawEventFromBroker(Message msg) throws Exception {
 		if(msg != null && msg.getBody() != null 
 				&& msg.getMessageProperties() != null && msg.getMessageProperties().getHeader(AMQP_HEADER_TYPEID) != null) {
@@ -51,16 +54,16 @@ public class TranslatorMessageConsumer {
 			String body = new String(msg.getBody());
 
 			logger.info("[AMQP MESSAGE RECEIVED] " + new String(msg.toString()));
-			if(messageType.endsWith(EVENTS_SUFFIX.GITLABEVENT)) {
+			if(messageType.endsWith(EVENTS_GITLAB_GENERAL)) {
 				GitlabEvent gitlabEvent = objectMapper.readValue(body, GitlabEvent.class);
 				logger.info("[GITLAB] - " + gitlabEvent.getObjectKind().name());
 				// TODO - Implement gitlab translator
 				userService.teste();
-			}else if(messageType.endsWith(EVENTS_SUFFIX.JIRAISSUEEVENT)) {
+			}else if(messageType.endsWith(EVENTS_JIRA_ISSUE)) {
 				JiraEvent jiraEvent = objectMapper.readValue(body, JiraEvent.class);
 				logger.info("[JIRA] - " + jiraEvent.getIssueEventTypeName().name());
 				// TODO - Implement jira issue translator
-			}else if(messageType.endsWith(EVENTS_SUFFIX.SLACKMESSAGE)) {
+			}else if(messageType.endsWith(EVENTS_SLACK_MESSAGE)) {
 				SlackChannelMessage slackMessage = objectMapper.readValue(body, SlackChannelMessage.class);
 				logger.info("[SLACK] - " + slackMessage.getText());
 				// TODO - Implement slack channel message translator

@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Configuration;
 public class RabbitMQProperties {
 
     private String queueNameDefault;
+    private String queueNameRawEvents;
     private String exchangeName;
     private String routingKeyPrefix;
     private Integer maxConcurrentConsumers;
@@ -18,6 +19,14 @@ public class RabbitMQProperties {
 
 	public void setQueueNameDefault(String queueNameDefault) {
 		this.queueNameDefault = queueNameDefault;
+	}
+	
+	public String getQueueNameRawEvents() {
+		return queueNameRawEvents;
+	}
+
+	public void setQueueNameRawEvents(String queueNameRawEvents) {
+		this.queueNameRawEvents = queueNameRawEvents;
 	}
 
 	public String getExchangeName() {

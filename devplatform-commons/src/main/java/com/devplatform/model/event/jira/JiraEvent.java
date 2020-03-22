@@ -26,9 +26,9 @@ public class JiraEvent   {
    * Gets or Sets webhookEvent
    */
   public enum WebhookEventEnum {
-    CREATED("jira:issue_created"),
+    ISSUE_CREATED("jira:issue_created"),
     
-    UPDATED("jira:issue_updated");
+    ISSUE_UPDATED("jira:issue_updated");
 
     private String value;
 
@@ -59,9 +59,9 @@ public class JiraEvent   {
    * Gets or Sets issueEventTypeName
    */
   public enum IssueEventTypeNameEnum {
-    CREATED("issue_created"),
+	ISSUE_CREATED("issue_created"),
     
-    GENERIC("issue_generic");
+	ISSUE_GENERIC("issue_generic");
 
     private String value;
 
