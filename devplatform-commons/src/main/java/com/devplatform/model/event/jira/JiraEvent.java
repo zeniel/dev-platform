@@ -27,7 +27,6 @@ public class JiraEvent   {
    */
   public enum WebhookEventEnum {
     ISSUE_CREATED("jira:issue_created"),
-    
     ISSUE_UPDATED("jira:issue_updated");
 
     private String value;

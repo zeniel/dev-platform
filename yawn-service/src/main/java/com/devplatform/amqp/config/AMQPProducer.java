@@ -36,5 +36,4 @@ public class AMQPProducer {
         System.out.println("Send Generic msg with routingkey: ["+ routingKey + "] = " + msg.toString());
         rabbitTemplate.convertAndSend(rabbitMQProperties.getExchangeName(), routingKey ,msg);
     }
-
 }

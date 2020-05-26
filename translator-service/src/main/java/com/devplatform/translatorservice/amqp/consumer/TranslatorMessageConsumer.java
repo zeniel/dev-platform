@@ -10,7 +10,6 @@ import org.springframework.amqp.rabbit.annotation.QueueBinding;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
 import com.devplatform.model.event.gitlab.GitlabEvent;
@@ -20,7 +19,6 @@ import com.devplatform.translatorservice.services.UserService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Component
-@PropertySource({ "classpath:application.properties" })
 public class TranslatorMessageConsumer {
 
 	private static final Logger logger = LoggerFactory.getLogger(TranslatorMessageConsumer.class);
